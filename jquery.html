@@ -5,7 +5,10 @@
     <script>
       $(document).ready(function () {
         $(".btn").click(function () {
-          alert("버튼 클릭!");
+          $(".popup_bg").css({ display: "block" });
+        });
+        $(".popup_bg").click(function () {
+          $(this).css({ display: "none" });
         });
       });
     </script>
@@ -20,6 +23,28 @@
         line-height: 50px;
         cursor: pointer;
       }
+      .popup_bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none;
+      }
+      .popup {
+        position: fixed;
+        width: 300px;
+        height: 200px;
+        background-color: #f1f1f1;
+        border: 1px solid #888;
+        padding: 20px;
+        z-index: 1000;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      }
     </style>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,5 +52,8 @@
   </head>
   <body>
     <button class="btn">버튼</button>
+    <div class="popup_bg">
+      <div class="popup"></div>
+    </div>
   </body>
 </html>
